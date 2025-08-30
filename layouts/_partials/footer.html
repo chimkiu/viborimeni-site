@@ -1,0 +1,18 @@
+<footer class="container">
+  <nav>
+    <ul>
+      <li><strong>{{ .Site.Title }}</strong></li>
+    </ul>
+    <ul>
+      {{ range .Site.Menus.footer }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+  </nav>
+  <small class="muted"
+    >© <time datetime="{{ now.Format "2006" }}">{{ now.Format "2006" }}</time>
+    <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>. Толкование снов онлайн.</small
+  >
+
+  <a href="#top" role="button" class="top-link" aria-label="Наверх">↑</a>
+</footer>

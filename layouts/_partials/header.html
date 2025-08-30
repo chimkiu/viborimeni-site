@@ -1,0 +1,42 @@
+<!-- Header -->
+<header class="container">
+  <nav aria-label="Главное меню">
+    <ul>
+      <li>
+        <a href="{{ .Site.BaseURL }}" class="brand" aria-label="{{ .Site.Title }} — на главную"
+          >Выбор<span class="primary">Имени</span>.ру</a
+        >
+      </li>
+    </ul>
+    <ul>
+      {{ range .Site.Menus.header }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+      {{ end }}
+      {{ if not .Page.IsHome }}
+        <!--li>
+          <a id="pagefind-dialog-button" class="contrast" aria-label="{{ i18n "search" }}">
+            {{ partial "components/icon.html" (dict "name" "search") }}
+          </a>
+        </li-->
+      {{ end }}
+      <li>
+        <a id="theme-toggle" class="contrast" aria-label="{{ i18n "themeSwitch" }}">
+          {{ partial "components/icon.html" (dict "name" "moon" "class" "icon-moon") }}
+          {{ partial "components/icon.html" (dict "name" "sun" "class" "icon-sun") }}
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  {{ if not .IsHome }}
+    <nav aria-label="Навигация по алфавиту">
+      <ul>
+        {{ range .Site.Taxonomies.letters }}
+          <li>
+            <a href="{{ .Page.RelPermalink }}">{{ .Page.Name | upper }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    </nav>
+  {{ end }}
+</header>

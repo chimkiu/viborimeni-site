@@ -1,0 +1,161 @@
+{{ define "main" }}
+  <!-- Hero / Поиск -->
+  <header class="hero">
+    <h1>Выбор Имени</h1>
+    <p class="muted">
+      Введите слово или фразу из сна — мы найдём толкование по классическим источникам и темам.
+    </p>
+
+    <input
+      type="search"
+      id="pagefind-input"
+      placeholder="Введите запрос"
+      aria-label="Поиск"
+      required
+    />
+
+    {{ with .GetPage "tolkovanie" }}
+      <p aria-label="Примеры запросов">
+        <small>
+          Например:
+          {{ range $index, $page := .Pages.ByWeight | first 100 | collections.Shuffle | first 6 -}}
+            {{- if gt $index 0 }},{{ end }}
+            <a href="{{ $page.Permalink }}">{{ $page.LinkTitle | lower }}</a>
+          {{- end }}
+        </small>
+      </p>
+    {{ end }}
+
+
+    <div id="pagefind-results" class="hidden"></div>
+
+    {{ if .Site.Taxonomies.letters }}
+      <!-- Алфавитная навигация -->
+      <nav aria-label="Навигация по алфавиту">
+        <ul>
+          <li><small class="muted">Быстрый переход:</small></li>
+          {{ range .Site.Taxonomies.letters }}
+            <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Name | upper }}</a></li>
+          {{ end }}
+        </ul>
+      </nav>
+    {{ end }}
+  </header>
+
+  {{ with .GetPage "tolkovanie" }}
+    <!-- Популярное -->
+    <section id="popular" aria-labelledby="popular-title">
+      <h2 id="popular-title">Сегодня ищут</h2>
+      <p>Список популярных запросов сновидений и толкований на сегодня</p>
+      <article>
+        <ul class="grid">
+          {{ range .Pages.ByWeight | first 100 | collections.Shuffle | first 10 }}
+            <li>
+              <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      </article>
+    </section>
+  {{ end }}
+
+  {{ if .Site.Taxonomies.categories }}
+    <!-- Темы / категории -->
+    <section id="categories" aria-labelledby="categories-title">
+      <h2 id="categories-title">Толкования по темам</h2>
+      <p>Навигация по темам толкований снов</p>
+      <div class="grid">
+        {{ range .Site.Taxonomies.categories.ByCount }}
+          <article>
+            <h3><a href="{{ .Page.RelPermalink }}" class="contrast">{{ .Page.LinkTitle }}</a></h3>
+
+            <p>
+              <small>
+                {{ i18n "numberOfPages" (len .Pages) }}
+              </small>
+            </p>
+
+            <ul>
+              {{ range first 5 .Pages.ByWeight }}
+                <li>
+                  <a href="{{ .RelPermalink }}">
+                    {{ .LinkTitle }}
+                  </a>
+                </li>
+              {{ end }}
+            </ul>
+
+            <a href="{{ .Page.RelPermalink }}">Перейти к теме <span>→</span></a>
+          </article>
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+
+
+  <!-- SEO-текст -->
+  <section aria-labelledby="seo-title">
+    <h2 id="seo-title">Как пользоваться сонником</h2>
+    <p>
+      {{ .Site.Title }} помогает быстро находить значение снов. Введите в поиск ключевое слово —
+      например, «змея» — и перейдите к толкованиям из разных источников. Если помните детали,
+      уточняйте: «змея кусает», «много змей», «чёрная змея» — так результат будет точнее.
+    </p>
+    <p>Для навигации так же используйте алфавит или темы.</p>
+  </section>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const searchInput = document.getElementById('pagefind-input');
+      const placeholders = [
+        {{ with .GetPage "tolkovanie" }}
+        {{ range first 50 .Pages.ByWeight }}
+        '{{ .LinkTitle }}',
+        {{ end }}
+        {{ end }}
+      ];
+      let currentPlaceholder = '';
+      let currentChar = 0;
+      let isDeleting = false;
+      let isPaused = false;
+
+      function getRandomPlaceholder() {
+        return placeholders[Math.floor(Math.random() * placeholders.length)];
+      }
+
+      function typeEffect() {
+        if (!currentPlaceholder || currentChar === 0) {
+          currentPlaceholder = getRandomPlaceholder().toLowerCase();
+        }
+
+        if (isDeleting) {
+          searchInput.placeholder = currentPlaceholder.substring(0, currentChar - 1);
+          currentChar--;
+        } else {
+          searchInput.placeholder = currentPlaceholder.substring(0, currentChar + 1);
+          currentChar++;
+        }
+
+        if (!isDeleting && currentChar === currentPlaceholder.length) {
+          isPaused = true;
+          setTimeout(() => {
+            isPaused = false;
+            isDeleting = true;
+          }, 1500);
+        } else if (isDeleting && currentChar === 0) {
+          isDeleting = false;
+          currentPlaceholder = '';
+        }
+
+        const typingSpeed = isDeleting ? 25 : 100;
+        if (!isPaused) {
+          setTimeout(typeEffect, typingSpeed);
+        } else {
+          setTimeout(typeEffect, 1500);
+        }
+      }
+
+      typeEffect();
+    });
+  </script>
+{{ end }}

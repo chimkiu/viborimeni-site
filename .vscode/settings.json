@@ -1,0 +1,10 @@
+{
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.wordWrap": "bounded",
+  "editor.wrappingIndent": "same",
+  "editor.wordWrapColumn": 100,
+  "editor.rulers": [100]
+}

@@ -1,0 +1,31 @@
+:root,
+:host {
+}
+
+article {
+}
+
+body > header {
+  .brand {
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    font-size: large;
+  }
+}
+
+body > footer {
+  margin-top: 2rem;
+  padding: 2rem 0 3rem;
+
+  .top-link {
+    position: fixed;
+    right: var(--pico-block-spacing-vertical);
+    bottom: var(--pico-block-spacing-vertical);
+  }
+}
+
+body > main {
+  .hero {
+    padding: 2rem 0;
+  }
+}

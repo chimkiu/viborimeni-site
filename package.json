@@ -1,0 +1,19 @@
+{
+  "name": "viborimeni-site",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "hugo server",
+    "build": "hugo --minify && npm run build:pagefind",
+    "build:pagefind": "pagefind --site public",
+    "deploy": "npm run build && ../../deployment/deploy.sh",
+    "check:keywords": "caffeinate -i site-tools check-keywords",
+    "generate:content": "caffeinate -i site-tools generate-content",
+    "format:content": "caffeinate -i site-tools format-content",
+    "add:links": "caffeinate -i site-tools add-links",
+    "generate:favicons": "../../scripts/gen-favicons.sh",
+    "format": "prettier --write --list-different .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "update:deps": "npx ncu -u && hugo mod get -u"
+  }
+}
