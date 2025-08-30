@@ -104,9 +104,9 @@ sitemap:
 # Количество слов в автоматически генерируемом кратком содержании.
 summaryLength: 10
 
-taxonomies:
-  category: categories
-  tag: tags
+taxonomies: []
+#   category: categories
+#   tag: tags
 
 # Заголовок сайта.
 title: ВыборИмени.ру
