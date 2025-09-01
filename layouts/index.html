@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Энциклопедия имён — Главная</title>
+    <!-- PicoCSS (замени на локальный импорт в проде) -->
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@2/css/pico.min.css" />
+    <style>
+      :root {
+        /* Мягкая палитра и плотность */
+        --pico-font-family:
+          system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Noto Sans', Arial,
+          sans-serif;
+        --pico-line-height: 1.5;
+        --pico-border-radius: 0.75rem;
+      }
+      header {
+        padding: 3rem 0 2rem;
+      }
+      header h1 {
+        /* фиксируем размер, чтобы не ругался Lighthouse */
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+      }
+      header form {
+        margin-top: 1rem;
+      }
+      .alphabet {
+        /* сетка букв без лишних классов на элементах */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
+        gap: 0.5rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .alphabet a {
+        display: block;
+        text-align: center;
+        padding: 0.5rem 0;
+        border: 1px solid var(--pico-muted-border-color, hsl(210 14% 84%));
+        border-radius: var(--pico-border-radius);
+        text-decoration: none;
+      }
+      .kicker {
+        margin-top: 0.5rem;
+      }
+      footer {
+        margin-top: 3rem;
+        padding: 2rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <ul>
+          <li><strong>Имёна</strong></li>
+        </ul>
+        <ul>
+          <li><a href="/imena/zhenskie/">Женские</a></li>
+          <li><a href="/imena/muzhskie/">Мужские</a></li>
+          <li><a href="/imena/proiskhozhdenie/">Происхождение</a></li>
+          <li><a href="/podbor/">Подборки</a></li>
+        </ul>
+      </nav>
+
+      <div class="container">
+        <h1>Энциклопедия имён</h1>
+        <p><small>Значения, происхождение, подборки и совместимость.</small></p>
+
+        <form role="search" action="/search/" method="get">
+          <input
+            type="search"
+            name="q"
+            id="pagefind-input"
+            placeholder="Введите имя, например: Иван"
+            aria-label="Поиск по сайту"
+            required
+          />
+        </form>
+
+        <p class="kicker">
+          <a href="/imena/zhenskie/" role="button">Женские имена</a>
+          <a href="/imena/muzhskie/" role="button" class="secondary">Мужские имена</a>
+          <a href="/imena/na-a/" role="button" class="contrast">Имена на А</a>
+        </p>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- Популярные разделы -->
+      <section aria-labelledby="popular">
+        <h2 id="popular">Популярные разделы</h2>
+        <div class="grid">
+          <article>
+            <h3><a href="/imena/zhenskie/krasivye/">Красивые женские имена</a></h3>
+            <p><small>Подборка имён с благозвучием и мягкими формами.</small></p>
+          </article>
+          <article>
+            <h3><a href="/imena/muzhskie/redkie/">Редкие мужские имена</a></h3>
+            <p><small>Нестандартные и звучные варианты для мальчиков.</small></p>
+          </article>
+          <article>
+            <h3><a href="/imena/musulmanskie/">Мусульманские имена</a></h3>
+            <p><small>Традиции, значения и толкования.</small></p>
+          </article>
+        </div>
+      </section>
+
+      <!-- По происхождению -->
+      <section aria-labelledby="origins">
+        <h2 id="origins">По происхождению</h2>
+        <p>
+          <a href="/imena/russkie/">Русские</a> · <a href="/imena/arabskie/">Арабские</a> ·
+          <a href="/imena/grecheskie/">Греческие</a> · <a href="/imena/evreyskie/">Еврейские</a> ·
+          <a href="/imena/slavyanskie/">Славянские</a> · <a href="/imena/yaponskie/">Японские</a> ·
+          <a href="/imena/koreyskie/">Корейские</a> ·
+          <a href="/imena/angliyskie/">Английские</a>
+        </p>
+      </section>
+
+      <!-- Алфавит -->
+      <section aria-labelledby="letters">
+        <h2 id="letters">Имена по алфавиту</h2>
+        <ul role="list" class="alphabet">
+          <li><a href="/imena/na-a/">А</a></li>
+          <li><a href="/imena/na-b/">Б</a></li>
+          <li><a href="/imena/na-v/">В</a></li>
+          <li><a href="/imena/na-g/">Г</a></li>
+          <li><a href="/imena/na-d/">Д</a></li>
+          <li><a href="/imena/na-e/">Е</a></li>
+          <li><a href="/imena/na-yo/">Ё</a></li>
+          <li><a href="/imena/na-zh/">Ж</a></li>
+          <li><a href="/imena/na-z/">З</a></li>
+          <li><a href="/imena/na-i/">И</a></li>
+          <li><a href="/imena/na-j/">Й</a></li>
+          <li><a href="/imena/na-k/">К</a></li>
+          <li><a href="/imena/na-l/">Л</a></li>
+          <li><a href="/imena/na-m/">М</a></li>
+          <li><a href="/imena/na-n/">Н</a></li>
+          <li><a href="/imena/na-o/">О</a></li>
+          <li><a href="/imena/na-p/">П</a></li>
+          <li><a href="/imena/na-r/">Р</a></li>
+          <li><a href="/imena/na-s/">С</a></li>
+          <li><a href="/imena/na-t/">Т</a></li>
+          <li><a href="/imena/na-u/">У</a></li>
+          <li><a href="/imena/na-f/">Ф</a></li>
+          <li><a href="/imena/na-kh/">Х</a></li>
+          <li><a href="/imena/na-ts/">Ц</a></li>
+          <li><a href="/imena/na-ch/">Ч</a></li>
+          <li><a href="/imena/na-sh/">Ш</a></li>
+          <li><a href="/imena/na-shch/">Щ</a></li>
+          <li><a href="/imena/na-y/">Ы</a></li>
+          <li><a href="/imena/na-eh/">Э</a></li>
+          <li><a href="/imena/na-yu/">Ю</a></li>
+          <li><a href="/imena/na-ya/">Я</a></li>
+        </ul>
+      </section>
+
+      <!-- Подборки / коллекции -->
+      <section aria-labelledby="collections">
+        <h2 id="collections">Подборки</h2>
+        <div class="grid">
+          <article>
+            <h3><a href="/podbor/krasivye-zhenskie-imena/">Красивые женские имена</a></h3>
+            <p><small>Большой список с краткими значениями.</small></p>
+          </article>
+          <article>
+            <h3><a href="/podbor/krasivye-muzhskie-imena/">Красивые мужские имена</a></h3>
+            <p><small>Подборка благозвучных мужских имён.</small></p>
+          </article>
+          <article>
+            <h3><a href="/podbor/korotkie-imena/">Короткие имена</a></h3>
+            <p><small>Лаконичные варианты для мальчиков и девочек.</small></p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Совместимость -->
+      <section aria-labelledby="compat">
+        <h2 id="compat">Совместимость имён</h2>
+        <form id="compat-form" onsubmit="return goCompat(event)">
+          <div class="grid">
+            <input type="text" name="a" placeholder="Имя 1: Иван" required />
+            <input type="text" name="b" placeholder="Имя 2: Мария" required />
+          </div>
+          <button type="submit">Проверить</button>
+        </form>
+      </section>
+
+      <!-- Новые имена / обновления -->
+      <section aria-labelledby="recent">
+        <h2 id="recent">Новые имена</h2>
+        <ul>
+          <li><a href="/imena/ivan/">Иван</a></li>
+          <li><a href="/imena/mariya/">Мария</a></li>
+          <li><a href="/imena/arseniy/">Арсений</a></li>
+          <li><a href="/imena/sofiya/">София</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="container">
+      <small>© 2025 Имёна. Значение и происхождение имён.</small>
+    </footer>
+
+    <script>
+      function goCompat(e) {
+        e.preventDefault();
+        const a = e.target.a.value.trim();
+        const b = e.target.b.value.trim();
+        if (!a || !b) return false;
+        const slug = (s) =>
+          transliterate(s)
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/(^-|-$)/g, '');
+        window.location.href = `/sovmestimost/${slug(a)}-i-${slug(b)}/`;
+        return false;
+      }
+      function transliterate(s) {
+        const map = {
+          а: 'a',
+          б: 'b',
+          в: 'v',
+          г: 'g',
+          д: 'd',
+          е: 'e',
+          ё: 'yo',
+          ж: 'zh',
+          з: 'z',
+          и: 'i',
+          й: 'j',
+          к: 'k',
+          л: 'l',
+          м: 'm',
+          н: 'n',
+          о: 'o',
+          п: 'p',
+          р: 'r',
+          с: 's',
+          т: 't',
+          у: 'u',
+          ф: 'f',
+          х: 'kh',
+          ц: 'ts',
+          ч: 'ch',
+          ш: 'sh',
+          щ: 'shch',
+          ъ: '',
+          ы: 'y',
+          ь: '',
+          э: 'eh',
+          ю: 'yu',
+          я: 'ya',
+        };
+        return s.replace(/[А-ЯЁа-яё]/g, (ch) => {
+          const low = ch.toLowerCase();
+          const out = map[low] || '';
+          return ch === low ? out : out.toUpperCase();
+        });
+      }
+    </script>
+  </body>
+</html>
