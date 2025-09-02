@@ -29,9 +29,20 @@ enableRobotsTXT: true
 languageCode: ru
 
 # Конфигурация меню сайта.
-# menus:
-#   - main
-#   - footer
+menu:
+  main:
+    - name: Справочник
+      url: /
+      weight: 1
+    - name: Подборки
+      url: /lists/
+      weight: 2
+    - name: Калькулятор
+      url: /tools/sovmestimost/
+      weight: 3
+    - name: О проекте
+      url: /about/
+      weight: 4
 
 module:
   imports:
@@ -76,6 +87,11 @@ params:
   # yandexMetrika:
   #   id: 103884727
 
+permalinks:
+  lists: '/:slug/'
+  names: '/imena/:slug/'
+  tools: '/tools/:slug/'
+
 # Печатать предупреждения, связанные с интернационализацией (i18n).
 printI18nWarnings: true
 
@@ -104,9 +120,13 @@ sitemap:
 # Количество слов в автоматически генерируемом кратком содержании.
 summaryLength: 10
 
-taxonomies: []
-#   category: categories
-#   tag: tags
+taxonomies:
+  gender: gender # male, female, unisex
+  letter: letter # a, b, v, g …
+  origin: origin # russian, arabic, japanese, tatar …
+  religion: religion # muslim, orthodox, biblical
+  semantics: semantics # beautiful, rare, strong, gentle, modern
+  topic: topics # вспомогательная (напр. совместимость)
 
 # Заголовок сайта.
-title: ВыборИмени.ру
+title: Выбор Имени
