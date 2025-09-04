@@ -24,9 +24,9 @@
   <section aria-labelledby="quick-entry">
     <h2 id="quick-entry">Быстрый выбор</h2>
     <div class="grid">
-      {{ with .Site.Taxonomies.gender }}
+      {{ with .Site.Taxonomies.genders }}
         <article>
-          <h3>По полу</h3>
+          <h3><a href="{{ .Page.RelPermalink }}" class="contrast">{{ .Page.LinkTitle }}</a></h3>
           <p>Каталоги женских и мужских имён с краткими значениями и фильтрами.</p>
           <p>
             {{ range .ByCount }}
@@ -35,9 +35,9 @@
           </p>
         </article>
       {{ end }}
-      {{ with .Site.GetPage "lists" }}
+      {{ with .Site.GetPage "collections" }}
         <article>
-          <h3>Подборки</h3>
+          <h3><a href="{{ .RelPermalink }}" class="contrast">{{ .LinkTitle }}</a></h3>
           <p>Темы с высоким спросом и продуманной структурой.</p>
           <ul>
             {{ range .Pages.ByWeight | first 5 }}
@@ -49,9 +49,9 @@
           </ul>
         </article>
       {{ end }}
-      {{ with .Site.Taxonomies.origin }}
+      {{ with .Site.Taxonomies.origins }}
         <article>
-          <h3>Происхождение</h3>
+          <h3><a href="{{ .Page.RelPermalink }}" class="contrast">{{ .Page.LinkTitle }}</a></h3>
           <p>Алфавитные списки и значения с транскрипцией.</p>
           <p>
             {{ range .ByCount }}
@@ -69,7 +69,9 @@
   {{ with .Site.Taxonomies.letters }}
     <!-- Letter navigation -->
     <section aria-labelledby="letters">
-      <h2 id="letters">Имена по буквам</h2>
+      <h2 id="letters">
+        <a href="{{ .Page.RelPermalink }}" class="contrast">{{ .Page.LinkTitle }}</a>
+      </h2>
       <p>Выберите первую букву имени:</p>
       <nav aria-label="Навигация по буквам">
         <ul>
@@ -102,7 +104,9 @@
   {{ with .GetPage "names" }}
     <!-- Featured names (popular cards) -->
     <section aria-labelledby="featured-names">
-      <h2 id="featured-names">Популярные карточки имён</h2>
+      <h2 id="featured-names">
+        <a href="{{ .RelPermalink }}" class="contrast">Популярные карточки имён</a>
+      </h2>
       <div class="grid">
         {{ range .Pages.ByWeight | first 6 }}
           <article>

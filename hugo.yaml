@@ -31,17 +31,13 @@ languageCode: ru
 # Конфигурация меню сайта.
 menu:
   main:
-    - name: Справочник
-      url: /
+    - pageRef: /names/
       weight: 1
-    - name: Подборки
-      url: /lists/
+    - pageRef: /collections/
       weight: 2
-    - name: Калькулятор
-      url: /tools/sovmestimost/
+    - pageRef: /tools/sovmestimost/
       weight: 3
-    - name: О проекте
-      url: /about/
+    - pageRef: /about/
       weight: 4
 
 module:
@@ -88,7 +84,7 @@ params:
   #   id: 103884727
 
 permalinks:
-  lists: '/:slug/'
+  collections: '/podborki/:slug/'
   names: '/imena/:slug/'
   tools: '/tools/:slug/'
 
@@ -121,11 +117,10 @@ sitemap:
 summaryLength: 10
 
 taxonomies:
-  gender: gender # male, female, unisex
-  letter: letter # a, b, v, g …
-  origin: origin # russian, arabic, japanese, tatar …
-  religion: religion # muslim, orthodox, biblical
-  semantics: semantics # beautiful, rare, strong, gentle, modern
+  gender: genders # male, female, unisex
+  letter: letters # a, b, v, g …
+  origin: origins # russian, arabic, japanese, tatar …
+  religion: religions # muslim, orthodox, biblical
   topic: topics # вспомогательная (напр. совместимость)
 
 # Заголовок сайта.
