@@ -76,12 +76,13 @@ params:
         blockId: X-X-XXXXXXXX-X
         enabled: false
     provider: yandex
+  description: Справочник имен
   favicon:
     bg: '#524ed2'
     radius: 32
     text: И
-  # yandexMetrika:
-  #   id: 103884727
+  yandexMetrika:
+    id: 104044027
 
 permalinks:
   page:
