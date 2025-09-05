@@ -2,7 +2,7 @@
 title: "{{ replace .Name "-" " " | title }}"
 type: "tools"
 slug: "{{ .Name }}"
-topics: []
+styles: []
 description: ""
 ---
 

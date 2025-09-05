@@ -78,15 +78,18 @@ params:
     provider: yandex
   favicon:
     bg: '#524ed2'
-    radius: 128
+    radius: 32
     text: И
   # yandexMetrika:
   #   id: 103884727
 
 permalinks:
-  collections: '/podborki/:slug/'
-  names: '/imena/:slug/'
-  tools: '/tools/:slug/'
+  page:
+    collections: '/podborki/:slugorcontentbasename/'
+    names: '/imena/:slugorcontentbasename/'
+  section:
+    collections: /podborki/
+    names: /imena/
 
 # Печатать предупреждения, связанные с интернационализацией (i18n).
 printI18nWarnings: true
@@ -121,7 +124,7 @@ taxonomies:
   letter: letters # a, b, v, g …
   origin: origins # russian, arabic, japanese, tatar …
   religion: religions # muslim, orthodox, biblical
-  topic: topics # вспомогательная (напр. совместимость)
+  style: styles # beautiful, modern, strong, rare, nature
 
 # Заголовок сайта.
 title: Выбор Имени
