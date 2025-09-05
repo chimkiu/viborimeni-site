@@ -28,11 +28,11 @@
         <article>
           <h3><a href="{{ .Page.RelPermalink }}" class="contrast">{{ .Page.LinkTitle }}</a></h3>
           <p>Каталоги женских и мужских имён с краткими значениями и фильтрами.</p>
-          <p>
+          <ul>
             {{ range .ByCount }}
-              <a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a> ·
+              <li><a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a></li>
             {{ end }}
-          </p>
+          </ul>
         </article>
       {{ end }}
       {{ with .Site.GetPage "collections" }}
@@ -44,7 +44,7 @@
               <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
             {{ end }}
             {{ if gt (len .Pages) 5 }}
-              <li><a href="{{ .RelPermalink }}">и ещё {{ len .Pages }}...</a></li>
+              <li><a href="{{ .RelPermalink }}">и ещё {{ sub (len .Pages) 5 }}...</a></li>
             {{ end }}
           </ul>
         </article>
@@ -53,14 +53,14 @@
         <article>
           <h3><a href="{{ .Page.RelPermalink }}" class="contrast">{{ .Page.LinkTitle }}</a></h3>
           <p>Алфавитные списки и значения с транскрипцией.</p>
-          <p>
+          <ul>
             {{ range .ByCount }}
-              <a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a> ·
+              <li><a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a></li>
             {{ end }}
             {{ if gt (len .) 5 }}
-              <a href="{{ .Page.RelPermalink }}">и ещё {{ len . }}...</a>
+              <li><a href="{{ .Page.RelPermalink }}">и ещё {{ sub (len .) 5 }}...</a></li>
             {{ end }}
-          </p>
+          </ul>
         </article>
       {{ end }}
     </div>

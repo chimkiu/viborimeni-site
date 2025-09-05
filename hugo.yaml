@@ -90,6 +90,18 @@ permalinks:
   section:
     collections: /podborki/
     names: /imena/
+  taxonomy:
+    genders: /:slugorcontentbasename/
+    letters: /imena-po-bukvam/
+    origins: /:slugorcontentbasename/
+    religions: /:slugorcontentbasename/
+    styles: /:slugorcontentbasename/
+  term:
+    genders: /:slugorcontentbasename/
+    letters: /imena-po-bukvam/:slugorcontentbasename/
+    origins: /:slugorcontentbasename/
+    religions: /:slugorcontentbasename/
+    styles: /:slugorcontentbasename/
 
 # Печатать предупреждения, связанные с интернационализацией (i18n).
 printI18nWarnings: true
