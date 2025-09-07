@@ -19,7 +19,9 @@ body > footer {
 }
 
 body > main {
-  .hero {
-    padding: 2rem 0;
+  section {
+    &[aria-labelledby='hero-title'] {
+      padding: 2rem 0;
+    }
   }
 }

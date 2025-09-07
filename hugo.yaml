@@ -2,10 +2,10 @@
 baseURL: https://viborimeni.ru/
 
 # Каскадные параметры: применяют метаданные к определенным наборам страниц.
-cascade:
-  - menus: footer
-    target:
-      path: '{/[!index]*,/**/index}'
+# cascade:
+#   - menus: footer
+#     target:
+#       path: '{/[!index]*,/**/index}'
 
 # Удалять ли файлы из целевого каталога сайта, у которых нет соответствующих файлов в каталоге `static` во время сборки.
 cleanDestinationDir: true
@@ -30,16 +30,13 @@ languageCode: ru
 
 # Конфигурация меню сайта.
 menu:
-  main:
+  footer:
     - pageRef: /names/
       weight: 1
     - pageRef: /collections/
       weight: 2
-    - pageRef: /tools/sovmestimost/
+    - pageRef: /sitemap/
       weight: 3
-    - pageRef: /about/
-      weight: 4
-
 module:
   imports:
     - path: github.com/chimkiu/hugo-universal-theme
