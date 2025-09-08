@@ -1,0 +1,120 @@
+{{ define "main" }}
+  <header data-pagefind-body aria-labelledby="header-title" class="container">
+    <h1 id="header-title">{{ .LinkTitle }} — значение имени</h1>
+
+    {{ if .Params.name.meaning_short }}
+      <p aria-label="Краткое значение имени">{{ .Params.name.meaning_short }}</p>
+    {{ end }}
+
+
+    <ul aria-label="Информация об имени">
+      <li>
+        <small>Имя:</small>
+        <span>{{ with .Params.name.canonical }}{{ . }}{{ else }}{{ .LinkTitle }}{{ end }}</span>
+      </li>
+
+      {{ with .Params.name.meaning_full }}
+        <li>
+          <small>Значение:</small>
+          <span>{{ . }}</span>
+        </li>
+      {{ end }}
+
+      {{ with .Params.name.latin }}
+        <li>
+          <small>На латинице:</small>
+          <span>{{ . }}</span>
+        </li>
+      {{ end }}
+
+      {{ with .Params.name.stress }}
+        <li>
+          <small>Ударение:</small>
+          <span>{{ . }}</span>
+        </li>
+      {{ end }}
+
+      {{ with .Params.name.variants }}
+        <li>
+          <small>Варианты:</small>
+          <span>{{ delimit . ", " }}</span>
+        </li>
+      {{ end }}
+
+      {{ with .Params.name.diminutives }}
+        <li>
+          <small>Уменьшительные:</small>
+          <span>{{ delimit . ", " }}</span>
+        </li>
+      {{ end }}
+
+      {{ with .Params.namedays }}
+        <li>
+          <small>Именины:</small>
+          <span>{{ delimit . ", " }}</span>
+        </li>
+      {{ end }}
+
+      {{ with .GetTerms "genders" }}
+        <li>
+          <small>Пол:</small>
+          {{ range $index, $value := . -}}
+            {{- if ne $index 0 }},{{ end }}
+            <a href="{{ $value.RelPermalink }}">{{ $value.LinkTitle | lower }}</a>
+          {{- end }}
+        </li>
+      {{ end }}
+
+      {{ with .GetTerms "letters" }}
+        <li>
+          <small>Буква:</small>
+          {{ range . }}
+            <a href="{{ .RelPermalink }}">{{ .Title | lower }}</a>
+          {{ end }}
+        </li>
+      {{ end }}
+
+      {{ with .GetTerms "origins" }}
+        <li>
+          <small>Происхождение:</small>
+          {{ range $index, $value := . -}}
+            {{- if ne $index 0 }},{{ end }}
+            <a href="{{ $value.RelPermalink }}">{{ $value.LinkTitle | lower }}</a>
+          {{- end }}
+        </li>
+      {{ end }}
+
+      {{ with .GetTerms "styles" }}
+        <li>
+          <small>Стиль:</small>
+          {{ range $index, $value := . }}
+            {{- if ne $index 0 }},{{ end }}
+            <a href="{{ $value.RelPermalink }}">{{ $value.LinkTitle | lower }}</a>
+          {{- end }}
+        </li>
+      {{ end }}
+
+      {{ with .GetTerms "religions" }}
+        <li>
+          <small>Традиция/религия:</small>
+          {{ range $index, $value := . }}
+            {{- if ne $index 0 }},{{ end }}
+            <a href="{{ $value.RelPermalink }}">{{ $value.LinkTitle | lower }}</a>
+          {{- end }}
+        </li>
+      {{ end }}
+    </ul>
+  </header>
+
+  {{ with .Summary | default .Description }}
+    <p>{{ . | plainify }}</p>
+  {{ end }}
+
+  {{ partial "sections/toc.html" . }}
+
+  {{ partial "sections/content.html" . }}
+
+  {{ partial "sections/faq.html" . }}
+
+  {{ partial "sections/related.html" . }}
+{{ end }}
