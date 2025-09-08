@@ -8,6 +8,7 @@
     "deploy": "npm run build && ../../deployment/deploy.sh",
     "check:keywords": "caffeinate -i site-tools check-keywords",
     "generate:content": "caffeinate -i site-tools generate-content",
+    "generate:taxonomy": "caffeinate -i site-tools generate-taxonomy",
     "format:content": "caffeinate -i site-tools format-content",
     "add:links": "caffeinate -i site-tools add-links",
     "generate:favicons": "../../scripts/gen-favicons.sh",

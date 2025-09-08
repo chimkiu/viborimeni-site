@@ -82,6 +82,7 @@ params:
     sections:
       - name: hero
       - name: terms
+        sort: Alphabetical
         taxonomy: letters
         view: inline
       - name: terms
