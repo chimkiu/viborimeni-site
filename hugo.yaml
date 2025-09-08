@@ -83,14 +83,17 @@ params:
       - name: hero
       - name: terms
         taxonomy: letters
+        view: inline
       - name: terms
         taxonomy: genders
+        view: cards
+      - name: terms
+        taxonomy: styles
+        view: cards
       - name: terms
         taxonomy: origins
       - name: terms
         taxonomy: religions
-      - name: terms
-        taxonomy: styles
       - name: faq
       - name: about
   yandexMetrika:
