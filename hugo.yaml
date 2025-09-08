@@ -78,6 +78,21 @@ params:
     bg: '#524ed2'
     radius: 32
     text: И
+  home:
+    sections:
+      - name: hero
+      - name: terms
+        taxonomy: letters
+      - name: terms
+        taxonomy: genders
+      - name: terms
+        taxonomy: origins
+      - name: terms
+        taxonomy: religions
+      - name: terms
+        taxonomy: styles
+      - name: faq
+      - name: about
   yandexMetrika:
     id: 104044027
 
