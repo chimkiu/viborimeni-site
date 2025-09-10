@@ -1,8 +1,7 @@
-:root,
-:host {
-}
-
-article {
+nav {
+  &[aria-label='Имена по буквам'] {
+    overflow: auto;
+  }
 }
 
 body > header {
