@@ -28,6 +28,10 @@ enableRobotsTXT: true
 # Код языка сайта (например, en, ru).
 languageCode: ru
 
+mediaTypes:
+  application/xml:
+    suffixes: [xml]
+
 # Конфигурация меню сайта.
 menu:
   footer:
@@ -46,6 +50,17 @@ module:
       path: github.com/picocss/pico
   replacements:
     - github.com/chimkiu/hugo-universal-theme -> ../../../themes/hugo-universal-theme
+
+outputFormats:
+  YandexFresh:
+    baseName: fresh # фид будет /fresh.xml
+    isPlainText: true
+    mediaType: application/xml
+    name: YandexFresh
+    rel: self
+
+outputs:
+  home: [HTML, YandexFresh]
 
 # Останавливать сборку при возникновении предупреждений.
 # panicOnWarning: true
